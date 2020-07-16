@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/move">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/counter_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/counter_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/counter_start_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/counter_end_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btn_start_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/btn_end_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".7" />
+
+    <TextView
+        android:id="@+id/fragment_sebha_txt_counter"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/d70"
+        android:background="@color/white"
+        android:padding="@dimen/d10"
+        android:text="@string/zero"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_30sp"
+        app:layout_constraintBottom_toBottomOf="@id/counter_end_horizontal"
+        app:layout_constraintEnd_toEndOf="@id/counter_end"
+        app:layout_constraintStart_toStartOf="@id/counter_start"
+        app:layout_constraintTop_toTopOf="@id/counter_start_horizontal" />
+
+    <Button
+        android:id="@+id/fragment_sebha_btn_clear"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/d10"
+        android:background="@drawable/shap_btn_clear_background"
+        android:padding="@dimen/d5"
+        android:text="@string/clear"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_start_horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/counter_end"
+        app:layout_constraintStart_toStartOf="@id/btn_start"
+        app:layout_constraintTop_toBottomOf="@id/fragment_sebha_txt_counter" />
+
+    <ImageButton
+        android:id="@+id/fragment_sebha_btn_counter"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/d5"
+        android:background="@null"
+        android:contentDescription="@string/counter"
+        android:padding="@dimen/d5"
+        android:src="@drawable/shap_btn_counter_background"
+        app:layout_constraintBottom_toBottomOf="@id/btn_end_horizontal"
+        app:layout_constraintEnd_toEndOf="@id/counter_end"
+        app:layout_constraintStart_toStartOf="@id/counter_start"
+        app:layout_constraintTop_toTopOf="@id/btn_start_horizontal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
