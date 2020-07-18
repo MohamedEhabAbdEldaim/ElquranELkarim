@@ -33,7 +33,7 @@ public class CustomDailog extends Dialog {
         setContentView(R.layout.dailog);
         setCancelable(false);
         setCanceledOnTouchOutside(false);
-        yes =  findViewById(R.id.btn_yes);
+        yes = (Button) findViewById(R.id.btn_yes);
         no = (Button) findViewById(R.id.btn_no);
         no.setOnClickListener(onClickListenerNo);
         yes.setOnClickListener(listener);

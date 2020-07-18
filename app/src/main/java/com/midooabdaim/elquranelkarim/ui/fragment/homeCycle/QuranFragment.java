@@ -61,7 +61,7 @@ public class QuranFragment extends BaseFragment {
     private List<surah> surahList = new ArrayList<>();
     private MediaPlayer mediaPlayer;
     private Handler handler;
-
+    private CustomDailog dailog;
 
     public QuranFragment() {
         // Required empty public constructor
@@ -240,6 +240,7 @@ public class QuranFragment extends BaseFragment {
             Button.OnClickListener listeneryes = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    dailog.dismiss();
                 }
             };
             Button.OnClickListener listenerno = new View.OnClickListener() {
@@ -247,9 +248,10 @@ public class QuranFragment extends BaseFragment {
                 public void onClick(View v) {
                     mediaPlayer.stop();
                     mediaPlayer.release();
+                    dailog.dismiss();
                 }
             };
-            CustomDailog dailog = new CustomDailog(getActivity(), listeneryes, listenerno);
+            dailog = new CustomDailog(getActivity(), listeneryes, listenerno);
             dailog.show();
         }
     }
@@ -279,6 +281,8 @@ public class QuranFragment extends BaseFragment {
             Button.OnClickListener listeneryes = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    dailog.dismiss();
+
                 }
             };
             Button.OnClickListener listenerno = new View.OnClickListener() {
@@ -286,9 +290,11 @@ public class QuranFragment extends BaseFragment {
                 public void onClick(View v) {
                     mediaPlayer.stop();
                     mediaPlayer.release();
+                    dailog.dismiss();
+
                 }
             };
-            CustomDailog dailog = new CustomDailog(getActivity(), listeneryes, listenerno);
+            dailog = new CustomDailog(getActivity(), listeneryes, listenerno);
             dailog.show();
         }
     }
