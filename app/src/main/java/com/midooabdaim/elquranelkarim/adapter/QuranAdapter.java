@@ -15,6 +15,7 @@ import com.midooabdaim.elquranelkarim.R;
 import com.midooabdaim.elquranelkarim.data.model.surah;
 import com.midooabdaim.elquranelkarim.ui.activity.MainActivity;
 import com.midooabdaim.elquranelkarim.ui.fragment.homeCycle.ContinerFragment;
+import com.midooabdaim.elquranelkarim.ui.fragment.homeCycle.QuranFragment;
 import com.midooabdaim.elquranelkarim.ui.fragment.homeCycle.quranCycle.QuranDetailsFragment;
 
 import java.util.ArrayList;
@@ -23,18 +24,22 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.midooabdaim.elquranelkarim.helper.HelperMethod.customToast;
 import static com.midooabdaim.elquranelkarim.helper.HelperMethod.replaceFragment;
 import static com.midooabdaim.elquranelkarim.helper.HelperMethod.showProgressDialog;
+import static com.midooabdaim.elquranelkarim.helper.InternetState.isActive;
 
 public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.ViewHolder> {
 
     private Context context;
     private Activity activity;
     private List<surah> surahList = new ArrayList<>();
+    private QuranFragment quranFragment;
 
-    public QuranAdapter(Context context, List<surah> surahList) {
+    public QuranAdapter(Context context, List<surah> surahList, QuranFragment quranFragment) {
         this.context = context;
         this.surahList = surahList;
+        this.quranFragment = quranFragment;
     }
 
     @Override
@@ -63,6 +68,18 @@ public class QuranAdapter extends RecyclerView.Adapter<QuranAdapter.ViewHolder> 
                 QuranDetailsFragment detailsFragment = new QuranDetailsFragment();
                 detailsFragment.index = surahList.get(position).getIndex();
                 replaceFragment(mainActivity.getSupportFragmentManager(), R.id.main_activity_frame_layout_id, detailsFragment);
+            }
+        });
+
+        holder.itemQuranSoundBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isActive(context)) {
+
+                    quranFragment.setMediaPlayer(surahList.get(position).getIndex(), "سورة " + surahList.get(position).getName());
+                } else {
+                    customToast((MainActivity) context, context.getString(R.string.noInternet), true);
+                }
             }
         });
 
